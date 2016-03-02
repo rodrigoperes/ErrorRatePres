@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error Rate Calculator</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Error Rate Calculator">
+  <meta name="author" content="Rodrigo Peres Ferreira">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Error Rate Calculator</h1>
+    <h2></h2>
+    <p>Rodrigo Peres Ferreira<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Error Rate Input</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Error Rate Calculator aims to generate the values of the most common error measures for evaluating prediction tests that use discrete data.</p>
+
+<p>The Input of this program consists of a matrix containing the measures of True Positives (TP), False Positives (FP), True Negatives (TN) and False Negatives (FN).</p>
+
+<ul>
+<li>The True Positives (TP) measure indicates how many times the data was correctly identified according to the reality;</li>
+<li>The False Positives (FP) measure indicates how many times the data was incorrectly identified, i.e., the data did not present the attribute that the test has indicated.</li>
+<li>The True Negatives (TN) measure indicates how many times the data was correctly rejected, i.e., the test hasn&#39;t identified the attribute in the data, and the data didn&#39;t present this attribute in the real world.</li>
+<li>The False Negatives (FN) measure indicates how many times the data was incorrectly rejected, i.e., the data had the attribute the test was trying to identify, but the test failed to recognize it.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Error Rate Output</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This program outputs 5 error rate measures:</p>
+
+<ul>
+<li>Sensitivity: It is the probalitity that the test identified the attribute in the data given that the data really had that attribute. It is calculated by the given formula: Sensitivity = TP/(TP + FN). </li>
+<li>Specificity: It is the probalitity that the test did not identify the attribute in the data given that the data really didn&#39;t present that attribute. It is calculated by the given formula: Specificity = TN/(TN + FP). </li>
+<li>Positive Predictive Value (PPV): It is the probalitity that the data really presented the attribute given that the test has identified that attribute. It is calculated by the given formula: PPV = TP/(TP+FP).</li>
+<li>Negative Predictive Value (NPV): It is the probability that the data did not presented the attribute given that the attribute wasn&#39;t identified by the prediction test. It is calculated by the given formula: NPV = TN/(TN + FN).</li>
+<li>Accuracy: It is the probability that the test identify or reject the data correctly. It is calculated by the given formula: (TP + TN)/ (TP + FP + TN + FN).</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>An example</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>If the Error Rate Input contains the following;</p>
+
+<pre><code class="r">TP &lt;- 10
+FP &lt;- 2
+TN &lt;- 12
+FN &lt;- 1
+</code></pre>
+
+<p>Then the output error measures for Sensitivity and Specitivity are going to be the following:</p>
+
+<pre><code class="r">(Sensitivity &lt;- TP/(TP + FN)) 
+</code></pre>
+
+<pre><code>## [1] 0.9091
+</code></pre>
+
+<pre><code class="r">(Specificity &lt;- TN/(TN + FP)) 
+</code></pre>
+
+<pre><code>## [1] 0.8571
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>An example</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>And the Positive Predictive Value (PPV), Negative Predictive Value (NPV) and Accuracy are going to be the following:</p>
+
+<pre><code class="r">(PPV &lt;- TP/(TP+FP))
+</code></pre>
+
+<pre><code>## [1] 0.8333
+</code></pre>
+
+<pre><code class="r">(NPV &lt;- TN/(TN + FN))
+</code></pre>
+
+<pre><code>## [1] 0.9231
+</code></pre>
+
+<pre><code class="r">(Accuracy &lt;- (TP + TN)/ (TP + FP + TN + FN))
+</code></pre>
+
+<pre><code>## [1] 0.88
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Error Rate Input'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Error Rate Output'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='An example'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='An example'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
